@@ -1,0 +1,29 @@
+<div class="container">
+  <header><img  style="width:100px;height:100px;" src="https://cdn4.iconfinder.com/data/icons/spring-color-2/64/bee-honey-hive-insect-bumblebee-512.png" ></header>
+  <div class="col-md-8 col-md-offset-2">
+    <br>
+    <div class="content">
+    
+        <h2><%=@user.username%> Post</h2>
+        <h3><%=@post.content%><h3>
+         <br>
+
+         <%if Helpers.current_user(session).id == @post.user_id%>
+
+            <form action="/posts/<%=@post.id%>" method="post" >
+               
+                    <input id="hidden" type="hidden" name="_method" value="delete">
+                    <input id ="Submit" type="submit" value="Delete Post">  
+            </form>
+          
+            <h3><a href="/posts/<%=@post.id%>/edit"> <button>Edit post</button></a></h3>
+                
+            
+        <%end%>
+
+        <p> Click here go back to your <a href="/posts">News Feed</a></p>
+
+    </div>
+
+  </div>
+</div>

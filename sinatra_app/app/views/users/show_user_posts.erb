@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Your Post</title>
+
+  </head>
+
+
+<div class="container">
+  <header><img  style="width:100px;height:100px;" src="https://cdn4.iconfinder.com/data/icons/spring-color-2/64/bee-honey-hive-insect-bumblebee-512.png" ></header>
+  <div class="col-md-8 col-md-offset-2">
+    <h2><%=@user.username%>'s Posts</h2>
+    <br>
+    <div class="content">
+        
+        <%@user.posts.each do |post|%>
+            <h3><a href="/posts/<%=post.id%>"><%= post.content %></a></h3>
+        <%end%>
+
+    </div>
+
+  </div>
+</div>

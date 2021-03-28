@@ -1,0 +1,22 @@
+<div class="container">
+  <header><img  style="width:100px;height:100px;" src="https://cdn4.iconfinder.com/data/icons/spring-color-2/64/bee-honey-hive-insect-bumblebee-512.png" ></header>
+  <div class="col-md-8 col-md-offset-2">
+    <br>
+    <div class="content">
+    
+        <h1>Edit Posts</h1>
+            <br>
+            <form action="/posts/<%=@post.id%>" method="post">
+                <input id="hidden" type="hidden" name="_method" value="PATCH">
+                <textarea type="text" name="content" value="<%=@post.content%>"><%=@post.content%></textarea><br>
+        
+                <input type="submit" id ="submit" value="Edit post">
+            </form>
+            <br>
+
+        <p> Click here go back to your <a href="/posts"> News Feed</a></p>
+
+    </div>
+
+  </div>
+</div>

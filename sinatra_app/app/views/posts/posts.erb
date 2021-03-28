@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+  </head>
+
+
+<div class="container">
+  <header><img  style="width:100px;height:100px;" src="https://cdn4.iconfinder.com/data/icons/spring-color-2/64/bee-honey-hive-insect-bumblebee-512.png" ></header>
+  <div class="col-md-8 col-md-offset-2">
+    <h2>News Feed </h2> 
+ 
+    <br>
+    <div class="content">
+    
+    <h1>Welcome, <a href="/users/<%=@user.slug%>"><%=@user.username%></a></h1>
+
+        <%@posts.each do |post|%>
+          <%@other_user = User.find_by(id: post.user_id)%>
+          <h4><%=@other_user.username%></h4>
+          <h5><a href="/posts/<%=post.id%>"><%=post.content%></a><h5><br>
+        <%end%>
+        
+        <br>
+
+      <p><a href="/posts/new"><button>New post</button></a></p>
+      <p><a href="/logout"> <button>Logout</button></a></p>
+    </div>
+
+  </div>
+</div>
