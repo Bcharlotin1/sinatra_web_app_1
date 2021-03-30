@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Your Post</title>
+<style>
+.post{
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  border-style: solid;
+  border-color: #F0F3F4;
+  padding: 10px;
+  box-shadow: 0 8px 6px -6px black;
+}
 
-  </head>
-
-
+</style>
 <div class="container">
   <header><img  style="width:100px;height:100px;" src="https://cdn4.iconfinder.com/data/icons/spring-color-2/64/bee-honey-hive-insect-bumblebee-512.png" ></header>
   <div class="col-md-8 col-md-offset-2">
@@ -15,8 +18,13 @@
     <div class="content">
         
         <%@user.posts.each do |post|%>
+        <div class="post">
             <h3><a href="/posts/<%=post.id%>"><%= post.content %></a></h3>
+        </div>
+          <br>
         <%end%>
+
+         <p> Click here go back to your <a href="/posts">News Feed</a></p>
 
     </div>
 

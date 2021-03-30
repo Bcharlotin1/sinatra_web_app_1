@@ -22,15 +22,15 @@ class UsersController < ApplicationController
          
                     redirect "/posts"
                 else 
-                     # flash[:message] = "Youalready have an account"
+                     flash[:message] = "You already have an account, please login"
                     redirect to '/signup'
                 end
             else 
-              # flash[:message] = "Username is taken"
+              flash[:message] = "Username is taken"
                 redirect to '/signup'  
             end 
         else
-          # flash[:message] = "Please enter ALL feilds."
+          flash[:message] = "Please enter all fields."
           redirect to '/signup'
         end
 
@@ -54,17 +54,18 @@ class UsersController < ApplicationController
     end
 
     post "/login" do 
+    # binding.pry
          if params[:username] != "" && params[:password] != ""
-            @user = User.find_by(username: params[:username])
+            @user = User.find_by(username: params[:username], password_digest: params[:password] )
             if @user
                 session[:user_id] = @user.id
                 redirect '/posts'
             else
-                # flash[:message] = "Wrong username or password."
+                flash[:message] = "Wrong username or password."
                 redirect "/login"
             end
         else
-            # flash[:message] = "Please enter ALL feilds."
+            flash[:message] = "Please enter all fields."
             redirect "/login"
         end
     end

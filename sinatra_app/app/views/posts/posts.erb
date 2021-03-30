@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+<style>
+.post{
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  border-style: solid;
+  border-color: #F0F3F4;
+  padding: 10px;
+  box-shadow: 0 8px 6px -6px black;
+}
 
-  </head>
+</style>
 
 
 <div class="container">
@@ -16,13 +23,14 @@
     <div class="content">
     
     <h1>Welcome, <a href="/users/<%=@user.slug%>"><%=@user.username%></a></h1>
-
+       
         <%@posts.each do |post|%>
           <%@other_user = User.find_by(id: post.user_id)%>
+          <div class="post"> 
           <h4><%=@other_user.username%></h4>
           <h5><a href="/posts/<%=post.id%>"><%=post.content%></a><h5><br>
+          </div><br>
         <%end%>
-        
         <br>
 
       <p><a href="/posts/new"><button>New post</button></a></p>

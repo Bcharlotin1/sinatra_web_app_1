@@ -8,3 +8,6 @@ development:
 test:
   <<: *default
   database: "db/test.sqlite"
+  #is the file where you set up all the information to connect to the database
+  # The information in the database. yml file is scoped by environment, 
+  #allowing you to get a different setting for testing, development or production.

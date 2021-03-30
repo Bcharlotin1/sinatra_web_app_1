@@ -56,6 +56,7 @@ class PostsController < ApplicationController
                 @post.update(content: params[:content])
                 redirect "/posts/#{@post.id}"
             else
+                flash[:message] = "Field can not be empty"
                 redirect "/posts/#{@post.id}/edit"
             end
         else

@@ -8,12 +8,14 @@
 
 
 <div class="container">
-  <header><img  style="width:100px;height:100px;" src="https://cdn4.iconfinder.com/data/icons/spring-color-2/64/bee-honey-hive-insect-bumblebee-512.png" ></header>
+  <header><a href="/"><img  style="width:100px;height:100px;" src="https://cdn4.iconfinder.com/data/icons/spring-color-2/64/bee-honey-hive-insect-bumblebee-512.png" ></a></header>
   <div class="col-md-8 col-md-offset-2">
     <h2>Login</h2>
     <br>
     <div class="content">
-        
+      <% if flash.has?(:message) %>
+      <h3 style= "color:red;"><%= flash[:message] %></h3>
+      <% end %> 
      <form action='/login' method="post">
   
             <label for='username'> Username:</label>

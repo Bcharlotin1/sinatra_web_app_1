@@ -1,11 +1,25 @@
+<style>
+.post{
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  border-style: solid;
+  border-color: #F0F3F4;
+  padding: 10px;
+  box-shadow: 0 8px 6px -6px black;
+}
+
+</style>
 <div class="container">
   <header><img  style="width:100px;height:100px;" src="https://cdn4.iconfinder.com/data/icons/spring-color-2/64/bee-honey-hive-insect-bumblebee-512.png" ></header>
   <div class="col-md-8 col-md-offset-2">
     <br>
     <div class="content">
     
-        <h2><%=@user.username%> Post</h2>
+        <h2><%=@user.username%>'s Post</h2>
+        <div class="post">
         <h3><%=@post.content%><h3>
+        </div>
          <br>
 
          <%if Helpers.current_user(session).id == @post.user_id%>
