@@ -11,13 +11,13 @@ class UsersController < ApplicationController
       end
     
       post '/signup' do 
-        @exsisting_username = User.find_by(username: params[:username])
-        @exsisting_email = User.find_by(email: params[:email])
+        @exsisting_username = User.find_by(username: params[:username].downcase)
+        @exsisting_email = User.find_by(email: params[:email].downcase)
     
         if params[:username]!= "" && params[:email] != "" && params[:password] != ""
             if !@exsisting_username
                 if !@exsisting_email
-                    @new_user = User.create(username: params[:username], email: params[:email], password: params[:password])
+                    @new_user = User.create(username: params[:username].downcase, email: params[:email].downcase, password: params[:password])
                     session[:user_id] = @new_user.id
          
                     redirect "/posts"
@@ -46,6 +46,7 @@ class UsersController < ApplicationController
     end
     #-------------------------------------------------
     get "/login"  do 
+      
         if !Helpers.is_logged_in?(session)
             erb :"/users/login"
         else 
@@ -54,9 +55,9 @@ class UsersController < ApplicationController
     end
 
     post "/login" do 
-    # binding.pry
+  
          if params[:username] != "" && params[:password] != ""
-            @user = User.find_by(username: params[:username], password_digest: params[:password] )
+            @user = User.find_by(username: params[:username].downcase, password_digest: params[:password] )
             if @user
                 session[:user_id] = @user.id
                 redirect '/posts'

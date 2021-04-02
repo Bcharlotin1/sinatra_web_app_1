@@ -1,8 +1,5 @@
 ENV["SINATRA_ENV"] ||= "development"
-#defining  the develement enviornment
-#This means that if "SINATRA_ENV" doesn’t already have a value, its value will be set equal to "development".
+
 
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
-#This loads Rake tasks from the sinatra-activerecord gem. 
-#is s tool tha allows you to  sutomat certian jobs like droping tables, migrating table,  feed the tabls dummy data 

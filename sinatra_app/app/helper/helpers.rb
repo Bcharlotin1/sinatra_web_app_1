@@ -10,7 +10,7 @@ class Helpers
     end
 
     def self.is_logged_in?(sessions_hash)
-      !!sessions_hash[:user_id] # this is almost like an nd if satmenet,  to see if sessions exists,  returns true, if it exsits
+      !!sessions_hash[:user_id] 
         
         
     end
